@@ -165,29 +165,4 @@ func TestElasticXPackSQLQuery(t *testing.T) {
 
 func TestElasticSearch(t *testing.T) {
 
-	config, err := getConfig()
-	if err != nil {
-		t.Fatal(err)
-		return
-	}
-
-	elasticClient, err := NewElasticProvider(config)
-	if err != nil {
-		t.Fatal(err)
-		return
-	}
-
-	req := esapi.SearchRequest{
-		Index:        []string{"test_index"},
-		DocumentType: []string{"_doc"},
-
-	}
-
-
-	if err != nil {
-		t.Fatal(err)
-		return
-	}
-	defer res.Body.Close()
-	t.Log(res.String())
 }

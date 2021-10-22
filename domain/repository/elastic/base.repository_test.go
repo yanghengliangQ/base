@@ -7,6 +7,7 @@ import (
 	elasticsearch6 "github.com/elastic/go-elasticsearch/v6"
 	"github.com/micro/go-micro/v2/config"
 	"github.com/micro/go-micro/v2/config/source/memory"
+	"github.com/micro/go-micro/v2/logger"
 	"github.com/stretchr/testify/assert"
 	"github.com/xxxmicro/base/database/elastic"
 	"github.com/xxxmicro/base/domain/model"
@@ -308,6 +309,47 @@ func TestBaseRepository_Page(t *testing.T) {
 	}
 }
 
+func TestBaseRepository_Cursor(t *testing.T) {
+	cfg, err := getConfig()
+	if err != nil {
+		t.Fatal(err)
+		return
+	}
+
+	db, err := getDB(cfg)
+	if err != nil {
+		t.Fatal(err)
+		return
+	}
+
+	userRepo := NewBaseRepository(db)
+
+	h, _ := time.ParseDuration("1s")
+	t1 := time.Now().Add(h)
+	cursor := t1.UnixNano() / 1e6
+
+	cursorQuery := &model.CursorQuery{
+		Filters: map[string]interface{}{
+		},
+		CursorSort: &model.SortSpec{
+			Property: "ctime",
+		},
+		Cursor: cursor,
+		Size: 10,
+	}
+
+	items := make([]*User, 0)
+	extra, err := userRepo.Cursor(context.Background(), cursorQuery, &User{}, &items)
+	if  err!=nil{
+		t.Fatal(err)
+	}
+
+	b, _ := json.Marshal(items)
+	s := string(b)
+	t.Log(s)
+	t.Log(extra)
+	logger.Info("游标查询成功")
+}
 
 func TestCrud(t *testing.T) {
 	assert := assert.New(t)

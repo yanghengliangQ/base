@@ -20,3 +20,9 @@ type CursorExtra struct {
 	MaxCursor interface{} 		`json:"maxCursor"` // 结果集中的起始游标值
 	MinCursor interface{} 		`json:"minCursor"` // 结果集中的结束游标值
 }
+
+/*
+1、游标和查询方向、筛选条件作为查询的条件， 优先以游标排序， 如果还有其他排序方式往后加
+2、取出数据量对应条数据
+3、返回数据中除了查询的数据本身，需要包含一些基本信息
+ */

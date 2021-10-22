@@ -7,11 +7,13 @@
     <list default="true" id="e4f9a3ae-74ba-41dc-b0ff-adeaa4cfce05" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/elastic/elastic_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/elastic/elastic_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/model/cursor.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/model/cursor.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/model/filter.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/model/filter.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/repository/elastic/base.repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/repository/elastic/base.repository.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/repository/elastic/base.repository_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/repository/elastic/base.repository_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/repository/elastic/utils.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/repository/elastic/utils.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/repository/elastic/utils_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/repository/elastic/utils_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/repository/mongo/base.repository_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/repository/mongo/base.repository_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,8 +47,8 @@
       <recent name="D:\Workspace\projects\uim\base\domain\repository" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestBaseRepository_Page in github.com/xxxmicro/base/domain/repository/elastic">
-    <configuration name="TestBaseRepository_Create in github.com/xxxmicro/base/domain/repository/elastic" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.TestBaseRepository_Cursor in github.com/xxxmicro/base/domain/repository/elastic">
+    <configuration name="TestBaseRepository_Cursor in github.com/xxxmicro/base/domain/repository/elastic" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="base" />
       <working_directory value="$PROJECT_DIR$/domain/repository/elastic" />
       <root_directory value="$PROJECT_DIR$" />
@@ -55,7 +57,7 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestBaseRepository_Create\E$" />
+      <pattern value="^\QTestBaseRepository_Cursor\E$" />
       <method v="2" />
     </configuration>
     <configuration name="TestBaseRepository_FindOne in github.com/xxxmicro/base/domain/repository/elastic" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -82,6 +84,18 @@
       <pattern value="^\QTestBaseRepository_Page\E$" />
       <method v="2" />
     </configuration>
+    <configuration name="TestBuildCursorSearch in github.com/xxxmicro/base/domain/repository/elastic" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="base" />
+      <working_directory value="$PROJECT_DIR$/domain/repository/elastic" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/xxxmicro/base/domain/repository/elastic" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestBuildCursorSearch\E$" />
+      <method v="2" />
+    </configuration>
     <configuration name="TestGetSearch in github.com/xxxmicro/base/domain/repository/elastic" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="base" />
       <working_directory value="$PROJECT_DIR$/domain/repository/elastic" />
@@ -94,25 +108,13 @@
       <pattern value="^\QTestGetSearch\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestSearch in github.com/xxxmicro/base/domain/repository/elastic" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="base" />
-      <working_directory value="$PROJECT_DIR$/domain/repository/elastic" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="github.com/xxxmicro/base/domain/repository/elastic" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestSearch\E$" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestBaseRepository_Cursor in github.com/xxxmicro/base/domain/repository/elastic" />
+        <item itemvalue="Go Test.TestBuildCursorSearch in github.com/xxxmicro/base/domain/repository/elastic" />
         <item itemvalue="Go Test.TestBaseRepository_Page in github.com/xxxmicro/base/domain/repository/elastic" />
         <item itemvalue="Go Test.TestBaseRepository_FindOne in github.com/xxxmicro/base/domain/repository/elastic" />
         <item itemvalue="Go Test.TestGetSearch in github.com/xxxmicro/base/domain/repository/elastic" />
-        <item itemvalue="Go Test.TestSearch in github.com/xxxmicro/base/domain/repository/elastic" />
-        <item itemvalue="Go Test.TestBaseRepository_Create in github.com/xxxmicro/base/domain/repository/elastic" />
       </list>
     </recent_temporary>
   </component>
@@ -130,6 +132,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

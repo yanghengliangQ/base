@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/xxxmicro/base/domain/model"
 	"testing"
+	"time"
 )
 
 func TestGetSort(t *testing.T) {
@@ -38,7 +39,7 @@ func TestGetQuery(t *testing.T) {
 
 }
 
-func TestGetSearch(t *testing.T) {
+func TestBuildPageSearch(t *testing.T) {
 	pageQuery := &model.PageQuery{
 		Filters: map[string]interface{}{
 			"name": map[string]interface{}{
@@ -54,7 +55,35 @@ func TestGetSearch(t *testing.T) {
 		}},
 	}
 
-	searchMap := buildSearch(pageQuery)
+	searchMap := buildPageSearch(pageQuery)
+	str, err := json.Marshal(searchMap)
+
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println("map to json  :   ", string(str))
+
+}
+
+func TestBuildCursorSearch(t *testing.T) {
+	h, _ := time.ParseDuration("1s")
+	t1 := time.Now().Add(h)
+	cursor := t1.UnixNano() / 1e6
+
+	cursorQuery := &model.CursorQuery{
+		Filters: map[string]interface{}{
+			"name": map[string]interface{}{
+				"NE": "2",
+			},
+		},
+		CursorSort: &model.SortSpec{
+			Property: "ctime",
+		},
+		Cursor: cursor,
+		Size: 10,
+	}
+
+	searchMap := buildCursorSearch(cursorQuery)
 	str, err := json.Marshal(searchMap)
 
 	if err != nil {

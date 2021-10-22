@@ -1,27 +1,27 @@
 package mongo
 
-import(
-	"fmt"
-	"testing"
-	"encoding/json"
-	"time"
+import (
 	"context"
-	"gopkg.in/mgo.v2/bson"
-	"github.com/xxxmicro/base/domain/model"
-	"github.com/xxxmicro/base/database/mongo"
+	"encoding/json"
+	"fmt"
 	"github.com/micro/go-micro/v2/config"
-	"github.com/micro/go-micro/v2/logger"
 	"github.com/micro/go-micro/v2/config/source/memory"
+	"github.com/micro/go-micro/v2/util/log"
 	"github.com/stretchr/testify/assert"
+	"github.com/xxxmicro/base/database/mongo"
+	"github.com/xxxmicro/base/domain/model"
+	"gopkg.in/mgo.v2/bson"
+	"testing"
+	"time"
 )
 
 type User struct {
-	ID	bson.ObjectId		`bson:"_id"`
-	Name string				`bson:"name"`
-	Age int 				`bson:"age"`
-	Ctime time.Time 		`bson:"ctime"`
-	Mtime time.Time 		`bson:"mtime"`
-	Dtime time.Time 		`bson:"dtime"`
+	ID    bson.ObjectId `bson:"_id"`
+	Name  string        `bson:"name"`
+	Age   int           `bson:"age"`
+	Ctime time.Time     `bson:"ctime"`
+	Mtime time.Time     `bson:"mtime"`
+	Dtime time.Time     `bson:"dtime"`
 }
 
 func (u *User) Unique() interface{} {
@@ -29,8 +29,6 @@ func (u *User) Unique() interface{} {
 		"_id": u.ID,
 	}
 }
-
-
 
 func getConfig() (config.Config, error) {
 	config, err := config.NewConfig()
@@ -50,7 +48,7 @@ func getConfig() (config.Config, error) {
 
 	err = config.Load(source)
 	if err != nil {
-		return nil, err 
+		return nil, err
 	}
 
 	return config, nil
@@ -59,10 +57,10 @@ func getConfig() (config.Config, error) {
 func getDB(config config.Config) (*mongo.DB, error) {
 	db, err := mongo.NewMongoProvider(config)
 	if err != nil {
-		log.Panic("数据库连接失败")
+		log.Fatal("数据库连接失败")
 		return nil, err
 	}
-	
+
 	return db, nil
 }
 
@@ -87,15 +85,15 @@ func TestCrud(t *testing.T) {
 	userRepo := NewBaseRepository(db)
 
 	user1 := &User{
-		ID: bson.NewObjectId(),
+		ID:   bson.NewObjectId(),
 		Name: "吕布",
-		Age: 28,
+		Age:  28,
 	}
-	
+
 	user2 := &User{
-		ID: bson.NewObjectId(),
+		ID:   bson.NewObjectId(),
 		Name: "貂蝉",
-		Age: 21,
+		Age:  21,
 	}
 
 	{
@@ -125,9 +123,9 @@ func TestCrud(t *testing.T) {
 	}
 
 	user3 := &User{
-		ID: bson.NewObjectId(),
+		ID:   bson.NewObjectId(),
 		Name: "关羽",
-		Age: 38,
+		Age:  38,
 	}
 	{
 		change, err := userRepo.Upsert(context.Background(), user3)
@@ -152,7 +150,7 @@ func TestCrud(t *testing.T) {
 	}
 
 	{
-		findUser := &User{ID: user2.ID }
+		findUser := &User{ID: user2.ID}
 		err := userRepo.FindOne(context.Background(), findUser)
 		assert.NoError(err)
 		if err != nil {
@@ -173,9 +171,9 @@ func TestCrud(t *testing.T) {
 				},
 			},
 			PageSize: 10,
-			PageNo: 1,
+			PageNo:   1,
 		}
-	
+
 		items := make([]*User, 0)
 		total, pageCount, err := userRepo.Page(context.Background(), &User{}, pageQuery, &items)
 		if assert.Error(err) {
@@ -188,7 +186,7 @@ func TestCrud(t *testing.T) {
 			log.Info(fmt.Sprintf("翻页查询总数错误, 期望1, 返回%d", total))
 		}
 
-		if assert.Equal( 1, pageCount) {
+		if assert.Equal(1, pageCount) {
 			log.Info("翻页查询页数正确")
 		} else {
 			log.Info(fmt.Sprintf("翻页查询页数错误, 期望1, 返回%d", pageCount))
@@ -205,13 +203,12 @@ func TestCrud(t *testing.T) {
 		cursor := t1.UnixNano() / 1e6
 
 		cursorQuery := &model.CursorQuery{
-			Filters: map[string]interface{}{
-			},
+			Filters: map[string]interface{}{},
 			CursorSort: &model.SortSpec{
 				Property: "ctime",
 			},
 			Cursor: cursor,
-			Size: 10,
+			Size:   10,
 		}
 
 		items := make([]*User, 0)
@@ -238,9 +235,9 @@ func TestCrud(t *testing.T) {
 
 		items := make([]*User, 0)
 		total, pageCount, err := userRepo.Page(context.Background(), &User{}, &model.PageQuery{
-			Filters: map[string]interface{}{},
+			Filters:  map[string]interface{}{},
 			PageSize: 10,
-			PageNo: 1,
+			PageNo:   1,
 		}, &items)
 		assert.NoError(err)
 		assert.Equal(1, total)
@@ -252,14 +249,14 @@ func TestCrud(t *testing.T) {
 
 		items = make([]*User, 0)
 		total, pageCount, err = userRepo.Page(context.Background(), &User{}, &model.PageQuery{
-			Filters: map[string]interface{}{},
+			Filters:  map[string]interface{}{},
 			PageSize: 10,
-			PageNo: 1,
+			PageNo:   1,
 		}, &items)
 		assert.NoError(err)
 		assert.Equal(0, total)
 		assert.Equal(0, pageCount)
-	
+
 		log.Info("翻页核对成功")
 	}
 }

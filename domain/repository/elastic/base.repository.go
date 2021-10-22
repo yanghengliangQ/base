@@ -243,7 +243,7 @@ func (r *BaseRepository) Page(c context.Context, m model.Model, query *model.Pag
 		return 0, 0, err
 	}
 
-	queryMap := buildSearch(query)
+	queryMap := buildPageSearch(query)
 	jsonBody, err := json.Marshal(queryMap)
 	if err != nil {
 		return 0, 0, err
@@ -292,6 +292,61 @@ func (r *BaseRepository) Page(c context.Context, m model.Model, query *model.Pag
 }
 
 func (r *BaseRepository) Cursor(c context.Context, query *model.CursorQuery, m model.Model, resultPtr interface{}) (extra *model.CursorExtra, err error) {
+	index, _, err := getModelInfo(m)
+	if err != nil {
+		return nil, err
+	}
+
+	queryMap := buildCursorSearch(query)
+	jsonBody, err := json.Marshal(queryMap)
+	if err != nil {
+		return nil, err
+	}
+
+	req := esapi.SearchRequest{
+		Index:        []string{index},
+		DocumentType: []string{index},
+		Body:         bytes.NewReader(jsonBody),
+		FilterPath:   []string{"hits.hits._source", "hits.total"},
+	}
+	res, err := req.Do(c, r.DB)
+	if err != nil {
+		return nil, err
+	}
+	defer res.Body.Close()
+
+	// todo 数据处理待优化
+	var respData PageResult
+	err = json.NewDecoder(res.Body).Decode(&respData)
+	if err != nil {
+		return nil, err
+	}
+
+	if res.StatusCode != 200 {
+		// todo 看怎么拿到详情
+		return nil, errors.New("not found")
+	}
+
+	// todo 这里需要填充
+	extra = &model.CursorExtra{
+		Direction: 0,
+		Size:      0,
+		HasMore:   false,
+		MaxCursor: 0,
+		MinCursor: 0,
+	}
+
+	var sources []interface{}
+	for _, v := range respData.Hits.Hits {
+		sources = append(sources, v.Source)
+	}
+
+	b, err := json.Marshal(sources)
+	if err != nil {
+		return nil, err
+	}
+
+	err = json.Unmarshal(b, resultPtr)
 
 	return
 }
