@@ -1,120 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bd45dc2b-c208-4a14-9add-1370b7f3b83c" name="Default Changelist" comment="">
+    <list default="true" id="e4f9a3ae-74ba-41dc-b0ff-adeaa4cfce05" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/database/elastic/elastic.provider.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/elastic/elastic_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/repository/elastic/base.repository.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/repository/elastic/base.repository_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/repository/elastic/naming.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/repository/elastic/reflect/mapping.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/repository/elastic/safemap.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/repository/elastic/utils.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/repository/elastic/utils_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/base.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/base.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/microbase.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/repository/gorm/base.repository_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/repository/gorm/base.repository_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/repository/gorm/utils.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/repository/gorm/utils.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="GOROOT" path="/usr/local/go" />
+  <component name="GOROOT" url="file://$PROJECT_DIR$/../../../../ProgramSoftware/go1.14.14.windows" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
   </component>
-  <component name="ProjectId" id="1gC9BS4AwnYCAuOMmApLCbvnDiM" />
+  <component name="ProjectId" id="1zqUatGZNtqvV66EEQroXMmrtdQ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.formatter.settings.were.checked" value="true" />
     <property name="go.import.settings.migrated" value="true" />
+    <property name="go.modules.go.list.on.any.changes.was.set" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
-    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="go.sdk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/domain/repository" />
   </component>
-  <component name="RunManager" selected="Go Test.TestCrud in github.com/xxxmicro/base/domain/repository/gorm (1)">
-    <configuration name="TestCrud in github.com/xxxmicro/base/domain/repository/gorm (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="microbase" />
-      <working_directory value="$PROJECT_DIR$/domain/repository/gorm" />
-      <framework value="gotest" />
-      <kind value="PACKAGE" />
-      <package value="github.com/xxxmicro/base/domain/repository/gorm" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <pattern value="^\QTestCrud\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestCrud in github.com/xxxmicro/base/domain/repository/gorm" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="microbase" />
-      <working_directory value="$PROJECT_DIR$/domain/repository/gorm" />
-      <framework value="gotest" />
-      <kind value="PACKAGE" />
-      <package value="github.com/xxxmicro/base/domain/repository/gorm" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <pattern value="^\QTestCrud\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestCrud in github.com/xxxmicro/base/domain/repository/mongo (2)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="microbase" />
-      <working_directory value="$PROJECT_DIR$/domain/repository/mongo" />
-      <framework value="gotest" />
-      <kind value="PACKAGE" />
-      <package value="github.com/xxxmicro/base/domain/repository/mongo" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <pattern value="^\QTestCrud\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestCrud in github.com/xxxmicro/base/domain/repository/mongo (3)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="microbase" />
-      <working_directory value="$PROJECT_DIR$/domain/repository/mongo" />
-      <framework value="gotest" />
-      <kind value="PACKAGE" />
-      <package value="github.com/xxxmicro/base/domain/repository/mongo" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <pattern value="^\QTestCrud\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestCrud in github.com/xxxmicro/base/domain/repository/mongo (4)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="microbase" />
-      <working_directory value="$PROJECT_DIR$/domain/repository/mongo" />
-      <framework value="gotest" />
-      <kind value="PACKAGE" />
-      <package value="github.com/xxxmicro/base/domain/repository/mongo" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <pattern value="^\QTestCrud\E$" />
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Go Test.TestCrud in github.com/xxxmicro/base/domain/repository/gorm (1)" />
-        <item itemvalue="Go Test.TestCrud in github.com/xxxmicro/base/domain/repository/mongo (4)" />
-        <item itemvalue="Go Test.TestCrud in github.com/xxxmicro/base/domain/repository/mongo (3)" />
-        <item itemvalue="Go Test.TestCrud in github.com/xxxmicro/base/domain/repository/mongo (2)" />
-        <item itemvalue="Go Test.TestCrud in github.com/xxxmicro/base/domain/repository/gorm" />
-      </list>
-    </recent_temporary>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Workspace\projects\uim\base\domain\repository" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,125 +65,8 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
-  </component>
-  <component name="WindowStateProjectService">
-<<<<<<< HEAD
-    <state width="1480" height="240" key="GridCell.Tab.0.bottom" timestamp="1598031623733">
-      <screen x="0" y="23" width="1536" height="892" />
-    </state>
-    <state width="1480" height="240" key="GridCell.Tab.0.bottom/-3440.63.3440.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1597614038018" />
-    <state width="1480" height="240" key="GridCell.Tab.0.bottom/0.23.1536.892@0.23.1536.892" timestamp="1598031623733" />
-    <state width="1480" height="240" key="GridCell.Tab.0.center" timestamp="1598031623732">
-      <screen x="0" y="23" width="1536" height="892" />
-    </state>
-    <state width="1480" height="240" key="GridCell.Tab.0.center/-3440.63.3440.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1597614038018" />
-    <state width="1480" height="240" key="GridCell.Tab.0.center/0.23.1536.892@0.23.1536.892" timestamp="1598031623732" />
-    <state width="1480" height="240" key="GridCell.Tab.0.left" timestamp="1598031623732">
-      <screen x="0" y="23" width="1536" height="892" />
-    </state>
-    <state width="1480" height="240" key="GridCell.Tab.0.left/-3440.63.3440.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1597614038018" />
-    <state width="1480" height="240" key="GridCell.Tab.0.left/0.23.1536.892@0.23.1536.892" timestamp="1598031623732" />
-    <state width="1480" height="240" key="GridCell.Tab.0.right" timestamp="1598031623732">
-      <screen x="0" y="23" width="1536" height="892" />
-    </state>
-    <state width="1480" height="240" key="GridCell.Tab.0.right/-3440.63.3440.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1597614038018" />
-    <state width="1480" height="240" key="GridCell.Tab.0.right/0.23.1536.892@0.23.1536.892" timestamp="1598031623732" />
-    <state width="1480" height="240" key="GridCell.Tab.1.bottom" timestamp="1598031623733">
-      <screen x="0" y="23" width="1536" height="892" />
-    </state>
-    <state width="1480" height="240" key="GridCell.Tab.1.bottom/-3440.63.3440.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1597614038019" />
-    <state width="1480" height="240" key="GridCell.Tab.1.bottom/0.23.1536.892@0.23.1536.892" timestamp="1598031623733" />
-    <state width="1480" height="240" key="GridCell.Tab.1.center" timestamp="1598031623733">
-      <screen x="0" y="23" width="1536" height="892" />
-    </state>
-    <state width="1480" height="240" key="GridCell.Tab.1.center/-3440.63.3440.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1597614038019" />
-    <state width="1480" height="240" key="GridCell.Tab.1.center/0.23.1536.892@0.23.1536.892" timestamp="1598031623733" />
-    <state width="1480" height="240" key="GridCell.Tab.1.left" timestamp="1598031623733">
-      <screen x="0" y="23" width="1536" height="892" />
-    </state>
-    <state width="1480" height="240" key="GridCell.Tab.1.left/-3440.63.3440.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1597614038018" />
-    <state width="1480" height="240" key="GridCell.Tab.1.left/0.23.1536.892@0.23.1536.892" timestamp="1598031623733" />
-    <state width="1480" height="240" key="GridCell.Tab.1.right" timestamp="1598031623733">
-      <screen x="0" y="23" width="1536" height="892" />
-    </state>
-    <state width="1480" height="240" key="GridCell.Tab.1.right/-3440.63.3440.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1597614038019" />
-    <state width="1480" height="240" key="GridCell.Tab.1.right/0.23.1536.892@0.23.1536.892" timestamp="1598031623733" />
-    <state x="568" y="169" width="604" height="735" key="find.popup" timestamp="1597613746507">
-      <screen x="0" y="23" width="1792" height="1046" />
-=======
-    <state width="1629" height="381" key="GridCell.Tab.0.bottom" timestamp="1597998698198">
-      <screen x="1680" y="-12" width="2560" height="1417" />
-    </state>
-    <state width="1480" height="240" key="GridCell.Tab.0.bottom/-3440.63.3440.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1597614038018" />
-    <state width="1754" height="382" key="GridCell.Tab.0.bottom/0.23.1680.965@0.23.1680.965" timestamp="1597722702279" />
-    <state width="1629" height="381" key="GridCell.Tab.0.bottom/1680.-12.2560.1417/0.23.1680.964@1680.-12.2560.1417" timestamp="1597998698198" />
-    <state width="1629" height="381" key="GridCell.Tab.0.center" timestamp="1597998698197">
-      <screen x="1680" y="-12" width="2560" height="1417" />
-    </state>
-    <state width="1480" height="240" key="GridCell.Tab.0.center/-3440.63.3440.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1597614038018" />
-    <state width="1754" height="382" key="GridCell.Tab.0.center/0.23.1680.965@0.23.1680.965" timestamp="1597722702279" />
-    <state width="1629" height="381" key="GridCell.Tab.0.center/1680.-12.2560.1417/0.23.1680.964@1680.-12.2560.1417" timestamp="1597998698197" />
-    <state width="1629" height="381" key="GridCell.Tab.0.left" timestamp="1597998698196">
-      <screen x="1680" y="-12" width="2560" height="1417" />
-    </state>
-    <state width="1480" height="240" key="GridCell.Tab.0.left/-3440.63.3440.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1597614038018" />
-    <state width="1754" height="382" key="GridCell.Tab.0.left/0.23.1680.965@0.23.1680.965" timestamp="1597722702278" />
-    <state width="1629" height="381" key="GridCell.Tab.0.left/1680.-12.2560.1417/0.23.1680.964@1680.-12.2560.1417" timestamp="1597998698196" />
-    <state width="1629" height="381" key="GridCell.Tab.0.right" timestamp="1597998698197">
-      <screen x="1680" y="-12" width="2560" height="1417" />
-    </state>
-    <state width="1480" height="240" key="GridCell.Tab.0.right/-3440.63.3440.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1597614038018" />
-    <state width="1754" height="382" key="GridCell.Tab.0.right/0.23.1680.965@0.23.1680.965" timestamp="1597722702279" />
-    <state width="1629" height="381" key="GridCell.Tab.0.right/1680.-12.2560.1417/0.23.1680.964@1680.-12.2560.1417" timestamp="1597998698197" />
-    <state width="1629" height="381" key="GridCell.Tab.1.bottom" timestamp="1597998698199">
-      <screen x="1680" y="-12" width="2560" height="1417" />
-    </state>
-    <state width="1480" height="240" key="GridCell.Tab.1.bottom/-3440.63.3440.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1597614038019" />
-    <state width="1629" height="381" key="GridCell.Tab.1.bottom/1680.-12.2560.1417/0.23.1680.964@1680.-12.2560.1417" timestamp="1597998698199" />
-    <state width="1629" height="381" key="GridCell.Tab.1.center" timestamp="1597998698199">
-      <screen x="1680" y="-12" width="2560" height="1417" />
-    </state>
-    <state width="1480" height="240" key="GridCell.Tab.1.center/-3440.63.3440.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1597614038019" />
-    <state width="1629" height="381" key="GridCell.Tab.1.center/1680.-12.2560.1417/0.23.1680.964@1680.-12.2560.1417" timestamp="1597998698199" />
-    <state width="1629" height="381" key="GridCell.Tab.1.left" timestamp="1597998698198">
-      <screen x="1680" y="-12" width="2560" height="1417" />
-    </state>
-    <state width="1480" height="240" key="GridCell.Tab.1.left/-3440.63.3440.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1597614038018" />
-    <state width="1629" height="381" key="GridCell.Tab.1.left/1680.-12.2560.1417/0.23.1680.964@1680.-12.2560.1417" timestamp="1597998698198" />
-    <state width="1629" height="381" key="GridCell.Tab.1.right" timestamp="1597998698199">
-      <screen x="1680" y="-12" width="2560" height="1417" />
-    </state>
-    <state width="1480" height="240" key="GridCell.Tab.1.right/-3440.63.3440.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1597614038019" />
-    <state width="1629" height="381" key="GridCell.Tab.1.right/1680.-12.2560.1417/0.23.1680.964@1680.-12.2560.1417" timestamp="1597998698199" />
-    <state x="2126" y="213" key="SettingsEditor" timestamp="1597997925600">
-      <screen x="1680" y="-12" width="2560" height="1417" />
-    </state>
-    <state x="2126" y="213" key="SettingsEditor/1680.-12.2560.1417/0.23.1680.964@1680.-12.2560.1417" timestamp="1597997925600" />
-    <state x="2491" y="186" width="863" height="996" key="find.popup" timestamp="1597998440739">
-      <screen x="1680" y="-12" width="2560" height="1417" />
->>>>>>> 8cf63458e3f7be37f74e74949752cd6474168a06
-    </state>
-    <state x="568" y="169" width="604" height="735" key="find.popup/-3440.63.3440.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1597613746507" />
-    <state x="2491" y="186" width="863" height="996" key="find.popup/1680.-12.2560.1417/0.23.1680.964@1680.-12.2560.1417" timestamp="1597998440739" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/domain/repository/gorm/base.repository_test.go</url>
-          <line>172</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/domain/repository/gorm/utils.go</url>
-          <line>19</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

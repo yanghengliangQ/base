@@ -5,6 +5,7 @@ go 1.14
 require (
 	github.com/codahale/hdrhistogram v0.0.0-20161010025455-3a0bb77429bd // indirect
 	github.com/denisenkom/go-mssqldb v0.0.0-20200428022330-06a60b6afbbc // indirect
+	github.com/elastic/go-elasticsearch/v6 v6.8.10
 	github.com/garyburd/redigo v1.6.2
 	github.com/gin-gonic/gin v1.6.3
 	github.com/go-sql-driver/mysql v1.5.0
@@ -16,7 +17,7 @@ require (
 	github.com/micro/go-micro/v2 v2.9.1
 	github.com/opentracing/opentracing-go v1.1.0
 	github.com/patrickmn/go-cache v2.1.0+incompatible
-	github.com/petersunbag/coven v1.0.0 // indirect
+	github.com/petersunbag/coven v1.0.0
 	github.com/pkg/errors v0.9.1
 	github.com/satori/go.uuid v1.2.0
 	github.com/stretchr/testify v1.4.0
