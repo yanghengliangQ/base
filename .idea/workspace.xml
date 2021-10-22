@@ -5,19 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4f9a3ae-74ba-41dc-b0ff-adeaa4cfce05" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/database/elastic/elastic.provider.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/elastic/elastic_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/repository/elastic/base.repository.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/repository/elastic/base.repository_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/repository/elastic/naming.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/repository/elastic/reflect/mapping.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/repository/elastic/safemap.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/repository/elastic/utils.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/repository/elastic/utils_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/base.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/base.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/microbase.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/elastic/elastic_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/elastic/elastic_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/model/filter.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/model/filter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/repository/elastic/base.repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/repository/elastic/base.repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/repository/elastic/base.repository_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/repository/elastic/base.repository_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/repository/elastic/utils.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/repository/elastic/utils.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/repository/elastic/utils_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/repository/elastic/utils_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +44,77 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Workspace\projects\uim\base\domain\repository" />
     </key>
+  </component>
+  <component name="RunManager" selected="Go Test.TestBaseRepository_Page in github.com/xxxmicro/base/domain/repository/elastic">
+    <configuration name="TestBaseRepository_Create in github.com/xxxmicro/base/domain/repository/elastic" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="base" />
+      <working_directory value="$PROJECT_DIR$/domain/repository/elastic" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/xxxmicro/base/domain/repository/elastic" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestBaseRepository_Create\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestBaseRepository_FindOne in github.com/xxxmicro/base/domain/repository/elastic" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="base" />
+      <working_directory value="$PROJECT_DIR$/domain/repository/elastic" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/xxxmicro/base/domain/repository/elastic" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestBaseRepository_FindOne\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestBaseRepository_Page in github.com/xxxmicro/base/domain/repository/elastic" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="base" />
+      <working_directory value="$PROJECT_DIR$/domain/repository/elastic" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/xxxmicro/base/domain/repository/elastic" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestBaseRepository_Page\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestGetSearch in github.com/xxxmicro/base/domain/repository/elastic" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="base" />
+      <working_directory value="$PROJECT_DIR$/domain/repository/elastic" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/xxxmicro/base/domain/repository/elastic" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestGetSearch\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestSearch in github.com/xxxmicro/base/domain/repository/elastic" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="base" />
+      <working_directory value="$PROJECT_DIR$/domain/repository/elastic" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/xxxmicro/base/domain/repository/elastic" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestSearch\E$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Test.TestBaseRepository_Page in github.com/xxxmicro/base/domain/repository/elastic" />
+        <item itemvalue="Go Test.TestBaseRepository_FindOne in github.com/xxxmicro/base/domain/repository/elastic" />
+        <item itemvalue="Go Test.TestGetSearch in github.com/xxxmicro/base/domain/repository/elastic" />
+        <item itemvalue="Go Test.TestSearch in github.com/xxxmicro/base/domain/repository/elastic" />
+        <item itemvalue="Go Test.TestBaseRepository_Create in github.com/xxxmicro/base/domain/repository/elastic" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">

@@ -22,8 +22,9 @@ func NewBaseRepository(db *elasticsearch6.Client) repository.BaseRepository {
 	return &BaseRepository{db}
 }
 
-func (r *BaseRepository) Create(c context.Context, m model.Model) error {
+// todo 时间要加时区
 
+func (r *BaseRepository) Create(c context.Context, m model.Model) error {
 	index, idRefValue, err := getModelInfo(m)
 	if err != nil {
 		return err
@@ -33,7 +34,10 @@ func (r *BaseRepository) Create(c context.Context, m model.Model) error {
 		idRefValue.SetString(bson.NewObjectId().Hex())
 	}
 
-	jsonBody, _ := json.Marshal(m)
+	jsonBody, err := json.Marshal(m)
+	if err != nil {
+		return err
+	}
 
 	req := esapi.CreateRequest{
 		Index:        index,
@@ -62,6 +66,7 @@ func (r *BaseRepository) Exists(c context.Context, index string, documentID stri
 		return false, err
 	}
 	defer res.Body.Close()
+
 	if res.StatusCode == 200 {
 		return true, nil
 	}
@@ -69,7 +74,6 @@ func (r *BaseRepository) Exists(c context.Context, index string, documentID stri
 }
 
 func (r *BaseRepository) Upsert(c context.Context, m model.Model) (*repository.ChangeInfo, error) {
-
 	index, idRefValue, err := getModelInfo(m)
 	if err != nil {
 		return nil, err
@@ -106,7 +110,10 @@ func (r *BaseRepository) Upsert(c context.Context, m model.Model) (*repository.C
 	reqBody := map[string]interface{}{
 		"doc": m,
 	}
-	jsonBody, _ := json.Marshal(reqBody)
+	jsonBody, err := json.Marshal(reqBody)
+	if err != nil {
+		return nil, err
+	}
 
 	req := esapi.UpdateRequest{
 		Index:        index,
@@ -127,7 +134,6 @@ func (r *BaseRepository) Upsert(c context.Context, m model.Model) (*repository.C
 }
 
 func (r *BaseRepository) Update(c context.Context, m model.Model, data interface{}) error {
-
 	index, idRefValue, err := getModelInfoAndCheckID(m)
 	if err != nil {
 		return err
@@ -136,7 +142,10 @@ func (r *BaseRepository) Update(c context.Context, m model.Model, data interface
 	reqBody := map[string]interface{}{
 		"doc": data,
 	}
-	jsonBody, _ := json.Marshal(reqBody)
+	jsonBody, err := json.Marshal(reqBody)
+	if err != nil {
+		return err
+	}
 
 	req := esapi.UpdateRequest{
 		Index:        index,
@@ -158,7 +167,6 @@ func (r *BaseRepository) Update(c context.Context, m model.Model, data interface
 }
 
 func (r *BaseRepository) FindOne(c context.Context, m model.Model) error {
-
 	index, idRefValue, err := getModelInfoAndCheckID(m)
 	if err != nil {
 		return err
@@ -168,6 +176,7 @@ func (r *BaseRepository) FindOne(c context.Context, m model.Model) error {
 		Index:        index,
 		DocumentType: index,
 		DocumentID:   idRefValue.String(),
+		FilterPath:   []string{"_source"},
 	}
 	res, err := req.Do(c, r.DB)
 	if err != nil {
@@ -175,8 +184,10 @@ func (r *BaseRepository) FindOne(c context.Context, m model.Model) error {
 	}
 	defer res.Body.Close()
 
+	fmt.Println(res.String())
 	var respData map[string]interface{}
-	if err = json.NewDecoder(res.Body).Decode(&respData); err != nil {
+	err = json.NewDecoder(res.Body).Decode(&respData)
+	if err != nil {
 		return err
 	}
 
@@ -188,7 +199,6 @@ func (r *BaseRepository) FindOne(c context.Context, m model.Model) error {
 }
 
 func (r *BaseRepository) Delete(c context.Context, m model.Model) error {
-
 	index, idRefValue, err := getModelInfoAndCheckID(m)
 	if err != nil {
 		return err
@@ -213,11 +223,70 @@ func (r *BaseRepository) Delete(c context.Context, m model.Model) error {
 	if err = json.NewDecoder(res.Body).Decode(&respData); err != nil {
 		return err
 	}
+
 	return errors.New(respData["result"].(string))
+}
+
+type PageResult struct {
+	Hits struct {
+		Total int `json:"total"`
+		Hits  []struct {
+			Source interface{} `json:"_source"`
+		} `json:"hits"`
+	} `json:"hits"`
 }
 
 // Page 多个条件 and , 每个条件的话， 支持 gt gte lt lte eq  like ne in 这几个即可
 func (r *BaseRepository) Page(c context.Context, m model.Model, query *model.PageQuery, resultPtr interface{}) (total int, pageCount int, err error) {
+	index, _, err := getModelInfo(m)
+	if err != nil {
+		return 0, 0, err
+	}
+
+	queryMap := buildSearch(query)
+	jsonBody, err := json.Marshal(queryMap)
+	if err != nil {
+		return 0, 0, err
+	}
+
+	req := esapi.SearchRequest{
+		Index:        []string{index},
+		DocumentType: []string{index},
+		Body:         bytes.NewReader(jsonBody),
+		FilterPath:   []string{"hits.hits._source", "hits.total"},
+	}
+	res, err := req.Do(c, r.DB)
+	if err != nil {
+		return 0, 0, err
+	}
+	defer res.Body.Close()
+
+	// todo 数据处理待优化
+	var respData PageResult
+	err = json.NewDecoder(res.Body).Decode(&respData)
+	if err != nil {
+		return 0, 0, err
+	}
+
+	if res.StatusCode != 200 {
+		// todo 看怎么拿到详情
+		return 0, 0, errors.New("not found")
+	}
+
+	total = respData.Hits.Total
+
+	var sources []interface{}
+	for _, v := range respData.Hits.Hits {
+		sources = append(sources, v.Source)
+	}
+
+	b, err := json.Marshal(sources)
+	if err != nil {
+		return 0, 0, err
+	}
+
+	pageCount = len(sources)
+	err = json.Unmarshal(b, resultPtr)
 
 	return
 }

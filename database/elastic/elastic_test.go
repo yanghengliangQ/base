@@ -177,21 +177,13 @@ func TestElasticSearch(t *testing.T) {
 		return
 	}
 
-	//req := esapi.SearchRequest{
-	//	Index:        []string{"test_index"},
-	//	DocumentType: []string{"_doc"},
-	//
-	//}
+	req := esapi.SearchRequest{
+		Index:        []string{"test_index"},
+		DocumentType: []string{"_doc"},
 
-	elasticClient.GetSource.WithFilterPath()
+	}
 
-	res, err := elasticClient.Search(
-		elasticClient.Search.WithContext(context.Background()),
-		elasticClient.Search.WithIndex("test_index"),
-		elasticClient.Search.WithTrackTotalHits(true),
-		elasticClient.Search.WithPretty(),
-		elasticClient.Search.WithSize(2),
-	)
+
 	if err != nil {
 		t.Fatal(err)
 		return

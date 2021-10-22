@@ -22,8 +22,11 @@ const (
 	FilterType_NOR      FilterType = "NOR"      //NOR
 
 	FilterType_ES_EQ            FilterType = "EQ"            // 等于
+	FilterType_ES_NE            FilterType = "NE"            //不相等
 	FilterType_ES_OR            FilterType = "OR"            //
 	FilterType_ES_AND           FilterType = "AND"           //
+	FilterType_ES_IN            FilterType = "IN"            //在什么范围内
+	FilterType_ES_LIKE          FilterType = "LIKE"          //like
 	FilterType_ES_NESTED        FilterType = "NESTED"        // 嵌套查询
 	FilterType_ES_TERMS_SCORE   FilterType = "TERMS_SCORE"   //
 	FilterType_ES_EQ_SCORE      FilterType = "EQ_SCORE"      //
@@ -40,16 +43,16 @@ const (
 
 type TimeType string // 数据库的时间类型
 const (
-        DATETIME      TimeType = "datetime" // 时间类型 time.Time
-        TIMESTAMP 		TimeType = "timestamp" // 时间戳 int64
+	DATETIME  TimeType = "datetime"  // 时间类型 time.Time
+	TIMESTAMP TimeType = "timestamp" // 时间戳 int64
 )
 
 type SortType string
 
 const (
-        SortType_DEFAULT SortType = "DEFAULT"
-        SortType_ASC     SortType = "ASC" // 升序
-        SortType_DSC     SortType = "DSC" // 降序
+	SortType_DEFAULT SortType = "DEFAULT"
+	SortType_ASC     SortType = "ASC" // 升序
+	SortType_DSC     SortType = "DSC" // 降序
 )
 
 type SortSpec struct {

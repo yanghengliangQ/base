@@ -16,6 +16,8 @@ import (
 	"time"
 )
 
+const TEST_USER_ID = "617268cf31cc5f56ec21c32d"
+
 type User struct {
 	ID    string    `json:"id"`
 	Name  string    `json:"name"`
@@ -26,20 +28,6 @@ type User struct {
 }
 
 func (u *User) Unique() interface{} {
-	return bson.M{
-		"_id": u.ID,
-	}
-}
-
-type UimTest struct {
-	ID    string    `json:"id"`
-	Name  string    `json:"name"`
-	Ctime time.Time `json:"ctime"`
-	Mtime time.Time `json:"mtime"`
-	Dtime time.Time `json:"dtime"`
-}
-
-func (u *UimTest) Unique() interface{} {
 	return bson.M{
 		"_id": u.ID,
 	}
@@ -98,7 +86,7 @@ func TestBaseRepository_Create(t *testing.T) {
 	user := &User{
 		ID: bson.NewObjectId().Hex(),
 		Name: "吕布",
-		Age: 28,
+		Age: 18,
 	}
 	user.Ctime = now
 	err = userRepo.Create(context.Background(), user)
@@ -153,7 +141,7 @@ func TestBaseRepository_Upsert(t *testing.T) {
 
 	// 指定id
 	user3 := &User{
-		ID: "61713ec431cc5f524088ec09",
+		ID: TEST_USER_ID,
 		Name: "吕布3",
 		Age: 29,
 	}
@@ -189,7 +177,7 @@ func TestBaseRepository_Update(t *testing.T) {
 
 	// 指定存在的id
 	user := &User{
-		ID: "61713ec431cc5f524088ec09",
+		ID: TEST_USER_ID,
 	}
 	err = userRepo.Update(context.Background(), user, data)
 	if err != nil {
@@ -225,7 +213,7 @@ func TestBaseRepository_FindOne(t *testing.T) {
 
 	// 指定存在的id
 	user := &User{
-		ID: "61713ec431cc5f524088ec09",
+		ID: TEST_USER_ID,
 	}
 	err = userRepo.FindOne(context.Background(), user)
 	if err != nil {
@@ -262,7 +250,7 @@ func TestBaseRepository_Delete(t *testing.T) {
 
 	// 指定存在的id
 	user := &User{
-		ID: "61713ec431cc5f524088ec09",
+		ID: TEST_USER_ID,
 	}
 	err = userRepo.Delete(context.Background(), user)
 	if err != nil {
@@ -298,10 +286,10 @@ func TestBaseRepository_Page(t *testing.T) {
 
 	pageQuery := &model.PageQuery{
 		Filters: map[string]interface{}{
-			"name": "赵云",
 			"age": map[string]interface{}{
-				"GT": 22,
+				"NE": 9,
 			},
+
 		},
 		PageSize: 10,
 		PageNo: 1,
@@ -314,7 +302,10 @@ func TestBaseRepository_Page(t *testing.T) {
 	}
 	t.Log("total = ", total)
 	t.Log("pageCount = ", pageCount)
-
+	t.Log("items = ", items)
+	for _, item := range items{
+		fmt.Println(*item)
+	}
 }
 
 
