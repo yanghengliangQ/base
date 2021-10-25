@@ -49,7 +49,7 @@ func getReflectInfo(t reflect.Type, customize func(*StructField)) (*StructInfo, 
 		for index := 0; index < t.NumField(); index++ {
 			structField := t.Field(index)
 			// 数据库字段名
-			tableField := strings.TrimSpace(structField.Tag.Get("bson"))
+			tableField := strings.TrimSpace(structField.Tag.Get("json"))
 			structFieldType := structField.Type
 
 			if len(tableField) != 0 {
@@ -94,7 +94,7 @@ func parseEmbedStruct(embedField reflect.StructField) []*StructField {
 	sfSlice := make([]*StructField, 0)
 	for i := 0; i < t.NumField(); i++ {
 		field := t.Field(i)
-		tableField := strings.TrimSpace(field.Tag.Get("bson"))
+		tableField := strings.TrimSpace(field.Tag.Get("json"))
 		structFieldType := field.Type
 
 		if len(tableField) != 0 {

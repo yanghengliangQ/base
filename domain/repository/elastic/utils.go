@@ -34,27 +34,11 @@ func getModelInfoAndCheckID(m model.Model) (index string, idRefValue reflect.Val
 	return
 }
 
-func buildPageSearch(pageQuery *model.PageQuery) map[string]interface{} {
-	query := buildQuery(pageQuery.Filters)
-	search := map[string]interface{}{
-		"query": query,
-		"from":  (pageQuery.PageNo - 1) * pageQuery.PageSize,
-		"size":  pageQuery.PageSize,
-	}
-
-	sort := buildSort(pageQuery.Sort)
-	if sort != nil {
-		search["sort"] = sort
-	}
-
-	return search
-}
-
-// todo 多条件排序好像有问题
 func buildSort(sortSpecs []*model.SortSpec) []map[string]string {
 	var sorts []map[string]string
 
 	for _, spec := range sortSpecs {
+		// todo 字符串排序时要加 ".keyword" 看怎么判断
 		sort := map[string]string{
 			spec.Property: string(spec.Type),
 		}
@@ -186,46 +170,4 @@ func buildRange(column string, filters map[string]interface{}) interface{} {
 		}}
 
 	return rangeFilter
-}
-
-// 这里要在 query.Filters 加入游标的条件
-// 要在 query.CursorSort 也加入游标的条件
-/*
-type CursorQuery struct {
-	Filters    map[string]interface{} 	`json:"filters"`    // 筛选条件
-	Cursor     interface{}            	`json:"cursor"`     // 游标值
-	CursorSort *SortSpec              	`json:"cursorSort"` // 游标字段&排序
-	Size       int                  	`json:"size"`       // 数据量
-	Direction  byte                   	`json:"direction"`  // 查询方向 0：游标前；1：游标后
-}
-*/
-func buildCursorSort(property string, direction byte) map[string]string {
-	if direction == uint8(0) {
-		return map[string]string{property: "asc"}
-	}
-	return map[string]string{property: "desc"}
-}
-
-func buildCursorSearch(cursorQuery *model.CursorQuery) map[string]interface{} {
-
-	{
-		filterDirection := "LT_FILTER"
-		if cursorQuery.Direction == uint8(1) {
-			filterDirection = "GT_FILTER"
-		}
-		cursorQuery.Filters[cursorQuery.CursorSort.Property] = map[string]interface{}{
-			filterDirection: cursorQuery.Cursor,
-		}
-	}
-
-	query := buildQuery(cursorQuery.Filters)
-	sort := buildCursorSort(cursorQuery.CursorSort.Property, cursorQuery.Direction)
-
-	search := map[string]interface{}{
-		"query": query,
-		"size":  cursorQuery.Size,
-		"sort":  sort,
-	}
-	return search
-
 }

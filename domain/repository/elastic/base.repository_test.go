@@ -85,9 +85,79 @@ func TestBaseRepository_Create(t *testing.T) {
 	userRepo := NewBaseRepository(db)
 	now := time.Now()
 	user := &User{
-		ID: bson.NewObjectId().Hex(),
-		Name: "吕布",
-		Age: 18,
+		ID:   bson.NewObjectId().Hex(),
+		Name: "张飞",
+		Age:  19,
+	}
+	user.Ctime = now
+	err = userRepo.Create(context.Background(), user)
+	if err != nil {
+		log.Fatal("插入记录失败")
+		return
+	}
+
+	time.Sleep(5 * time.Second)
+	now = time.Now()
+	user = &User{
+		ID:   bson.NewObjectId().Hex(),
+		Name: "关羽",
+		Age:  20,
+	}
+	user.Ctime = now
+	err = userRepo.Create(context.Background(), user)
+	if err != nil {
+		log.Fatal("插入记录失败")
+		return
+	}
+
+	time.Sleep(5 * time.Second)
+	now = time.Now()
+	user = &User{
+		ID:   bson.NewObjectId().Hex(),
+		Name: "刘备",
+		Age:  25,
+	}
+	user.Ctime = now
+	err = userRepo.Create(context.Background(), user)
+	if err != nil {
+		log.Fatal("插入记录失败")
+		return
+	}
+
+	time.Sleep(5 * time.Second)
+	now = time.Now()
+	user = &User{
+		ID:   bson.NewObjectId().Hex(),
+		Name: "赵云",
+		Age:  20,
+	}
+	user.Ctime = now
+	err = userRepo.Create(context.Background(), user)
+	if err != nil {
+		log.Fatal("插入记录失败")
+		return
+	}
+
+	time.Sleep(5 * time.Second)
+	now = time.Now()
+	user = &User{
+		ID:   bson.NewObjectId().Hex(),
+		Name: "曹操",
+		Age:  26,
+	}
+	user.Ctime = now
+	err = userRepo.Create(context.Background(), user)
+	if err != nil {
+		log.Fatal("插入记录失败")
+		return
+	}
+
+	time.Sleep(5 * time.Second)
+	now = time.Now()
+	user = &User{
+		ID:   bson.NewObjectId().Hex(),
+		Name: "诸葛亮",
+		Age:  20,
 	}
 	user.Ctime = now
 	err = userRepo.Create(context.Background(), user)
@@ -116,7 +186,7 @@ func TestBaseRepository_Upsert(t *testing.T) {
 	// 不指定id
 	user := &User{
 		Name: "吕布",
-		Age: 29,
+		Age:  29,
 	}
 	user.Ctime = now
 	change, err := userRepo.Upsert(context.Background(), user)
@@ -128,9 +198,9 @@ func TestBaseRepository_Upsert(t *testing.T) {
 
 	// 不存在的id
 	user2 := &User{
-		ID: bson.NewObjectId().Hex(),
+		ID:   bson.NewObjectId().Hex(),
 		Name: "吕布2",
-		Age: 29,
+		Age:  29,
 	}
 	user2.Ctime = now
 	change, err = userRepo.Upsert(context.Background(), user2)
@@ -142,9 +212,9 @@ func TestBaseRepository_Upsert(t *testing.T) {
 
 	// 指定id
 	user3 := &User{
-		ID: TEST_USER_ID,
+		ID:   TEST_USER_ID,
 		Name: "吕布3",
-		Age: 29,
+		Age:  29,
 	}
 	user3.Ctime = now
 	change, err = userRepo.Upsert(context.Background(), user3)
@@ -290,10 +360,14 @@ func TestBaseRepository_Page(t *testing.T) {
 			"age": map[string]interface{}{
 				"NE": 9,
 			},
-
 		},
 		PageSize: 10,
-		PageNo: 1,
+		PageNo:   1,
+		Sort: []*model.SortSpec{{
+			Property:   "age",
+			Type:       "asc",
+			IgnoreCase: false,
+		}},
 	}
 
 	items := make([]*User, 0)
@@ -304,7 +378,7 @@ func TestBaseRepository_Page(t *testing.T) {
 	t.Log("total = ", total)
 	t.Log("pageCount = ", pageCount)
 	t.Log("items = ", items)
-	for _, item := range items{
+	for _, item := range items {
 		fmt.Println(*item)
 	}
 }
@@ -324,23 +398,20 @@ func TestBaseRepository_Cursor(t *testing.T) {
 
 	userRepo := NewBaseRepository(db)
 
-	h, _ := time.ParseDuration("1s")
-	t1 := time.Now().Add(h)
-	cursor := t1.UnixNano() / 1e6
+	cursor := 1634968309000
 
 	cursorQuery := &model.CursorQuery{
-		Filters: map[string]interface{}{
-		},
+		Filters: map[string]interface{}{},
 		CursorSort: &model.SortSpec{
 			Property: "ctime",
 		},
 		Cursor: cursor,
-		Size: 10,
+		Size:   2,
 	}
 
 	items := make([]*User, 0)
-	extra, err := userRepo.Cursor(context.Background(), cursorQuery, &User{}, &items)
-	if  err!=nil{
+	extra, err := userRepo.Cursor(context.Background(), cursorQuery, &User{Ctime: time.Now()}, &items)
+	if err != nil {
 		t.Fatal(err)
 	}
 
@@ -369,13 +440,13 @@ func TestCrud(t *testing.T) {
 	userRepo := NewBaseRepository(db)
 
 	user1 := &User{
-		ID:   string(bson.NewObjectId()),
+		ID:   bson.NewObjectId().Hex(),
 		Name: "吕布",
 		Age:  28,
 	}
 
 	user2 := &User{
-		ID:   string(bson.NewObjectId()),
+		ID:   bson.NewObjectId().Hex(),
 		Name: "貂蝉",
 		Age:  21,
 	}
@@ -407,7 +478,7 @@ func TestCrud(t *testing.T) {
 	}
 
 	user3 := &User{
-		ID:   string(bson.NewObjectId()),
+		ID:   bson.NewObjectId().Hex(),
 		Name: "关羽",
 		Age:  38,
 	}

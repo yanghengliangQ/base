@@ -5,20 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4f9a3ae-74ba-41dc-b0ff-adeaa4cfce05" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/domain/repository/elastic/cursor_utils.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/repository/elastic/page_utils.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/elastic/elastic_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/elastic/elastic_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/model/cursor.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/model/cursor.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/model/filter.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/model/filter.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/repository/elastic/base.repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/repository/elastic/base.repository.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/repository/elastic/base.repository_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/repository/elastic/base.repository_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/repository/elastic/reflect/mapping.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/repository/elastic/reflect/mapping.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/repository/elastic/utils.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/repository/elastic/utils.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/repository/elastic/utils_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/repository/elastic/utils_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/repository/mongo/base.repository_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/repository/mongo/base.repository_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/repository/mongo/base.repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/repository/mongo/base.repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reflect/utils.go" beforeDir="false" afterPath="$PROJECT_DIR$/reflect/utils.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
   </component>
   <component name="GOROOT" url="file://$PROJECT_DIR$/../../../../ProgramSoftware/go1.14.14.windows" />
   <component name="Git.Settings">
@@ -33,6 +40,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -47,7 +55,19 @@
       <recent name="D:\Workspace\projects\uim\base\domain\repository" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestBaseRepository_Cursor in github.com/xxxmicro/base/domain/repository/elastic">
+  <component name="RunManager" selected="Go Test.TestBaseRepository_Create in github.com/xxxmicro/base/domain/repository/elastic">
+    <configuration name="TestBaseRepository_Create in github.com/xxxmicro/base/domain/repository/elastic" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="base" />
+      <working_directory value="$PROJECT_DIR$/domain/repository/elastic" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/xxxmicro/base/domain/repository/elastic" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestBaseRepository_Create\E$" />
+      <method v="2" />
+    </configuration>
     <configuration name="TestBaseRepository_Cursor in github.com/xxxmicro/base/domain/repository/elastic" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="base" />
       <working_directory value="$PROJECT_DIR$/domain/repository/elastic" />
@@ -60,19 +80,7 @@
       <pattern value="^\QTestBaseRepository_Cursor\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestBaseRepository_FindOne in github.com/xxxmicro/base/domain/repository/elastic" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="base" />
-      <working_directory value="$PROJECT_DIR$/domain/repository/elastic" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="github.com/xxxmicro/base/domain/repository/elastic" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestBaseRepository_FindOne\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestBaseRepository_Page in github.com/xxxmicro/base/domain/repository/elastic" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestBaseRepository_Page in github.com/xxxmicro/base/domain/repository/elastic (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="base" />
       <working_directory value="$PROJECT_DIR$/domain/repository/elastic" />
       <root_directory value="$PROJECT_DIR$" />
@@ -84,7 +92,7 @@
       <pattern value="^\QTestBaseRepository_Page\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestBuildCursorSearch in github.com/xxxmicro/base/domain/repository/elastic" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestCrud in github.com/xxxmicro/base/domain/repository/elastic" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="base" />
       <working_directory value="$PROJECT_DIR$/domain/repository/elastic" />
       <root_directory value="$PROJECT_DIR$" />
@@ -93,28 +101,28 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestBuildCursorSearch\E$" />
+      <pattern value="^\QTestCrud\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestGetSearch in github.com/xxxmicro/base/domain/repository/elastic" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestCrud in github.com/xxxmicro/base/domain/repository/mongo" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="base" />
-      <working_directory value="$PROJECT_DIR$/domain/repository/elastic" />
+      <working_directory value="$PROJECT_DIR$/domain/repository/mongo" />
       <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="github.com/xxxmicro/base/domain/repository/elastic" />
+      <package value="github.com/xxxmicro/base/domain/repository/mongo" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
-      <pattern value="^\QTestGetSearch\E$" />
+      <pattern value="^\QTestCrud\E$" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestBaseRepository_Create in github.com/xxxmicro/base/domain/repository/elastic" />
+        <item itemvalue="Go Test.TestCrud in github.com/xxxmicro/base/domain/repository/elastic" />
+        <item itemvalue="Go Test.TestBaseRepository_Page in github.com/xxxmicro/base/domain/repository/elastic (1)" />
         <item itemvalue="Go Test.TestBaseRepository_Cursor in github.com/xxxmicro/base/domain/repository/elastic" />
-        <item itemvalue="Go Test.TestBuildCursorSearch in github.com/xxxmicro/base/domain/repository/elastic" />
-        <item itemvalue="Go Test.TestBaseRepository_Page in github.com/xxxmicro/base/domain/repository/elastic" />
-        <item itemvalue="Go Test.TestBaseRepository_FindOne in github.com/xxxmicro/base/domain/repository/elastic" />
-        <item itemvalue="Go Test.TestGetSearch in github.com/xxxmicro/base/domain/repository/elastic" />
+        <item itemvalue="Go Test.TestCrud in github.com/xxxmicro/base/domain/repository/mongo" />
       </list>
     </recent_temporary>
   </component>
@@ -136,5 +144,12 @@
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="GoTestRunConfiguration">
+        <watch expression="b" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
